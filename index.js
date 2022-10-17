@@ -1,91 +1,94 @@
-const pizzas = [
-  {
-    id:1,
-    pizza:'Mozzarella',
-    ingredientes: ['queso mozzarella','aceitunas'],
-    precio: 500
-  },
+import { pizzas } from "./objectPizzas.js";
 
-  {
-    id:2,
-    pizza:'Margarita',
-    ingredientes: ['albahaca','tomate'],
-    precio: 650
-  },
-
-  {
-    id:3,
-    pizza:'Pepperoni',
-    ingredientes: ['pepperoni','tomate','queso'],
-    precio: 750
-  },
-
-  {
-    id:4,
-    pizza:'Napolitana',
-    ingredientes: ['alcaparras','anchoas','ajo'],
-    precio: 1300
-  },
-
-  {
-    id:5,
-    pizza:'Fugazza',
-    ingredientes: ['cebolla','queso','aceitunas'],
-    precio: 700
-  },
-
-  {
-    id:6,
-    pizza:'Neoyorquina',
-    ingredientes: ['verduras','carne','jamon'],
-    precio: 1200
-  }
-];
-
-const impar = [];
-const pizzaBarata = [];
-const preciosPizzas = [];
-const ingredientesPizza = [];
+const objPizzas = pizzas;
 
 
-const dataPizza = pizzas.map(item =>{
 
-  if(item.id % 2 !== 0){
-    impar.push(item.id);
-  }
+const divContainer = document.getElementById('renderPizza');
+const input = document.querySelector('.input');
+const btnSearch = document.querySelector('.btn_search');
+
+
+const operationPizza = () =>{
+
+  let arrayPizza =  [];
+ 
+
+
+  /* 1- Encuentro la pizza seleccionada por su id */
+  const idPizza = Number(input.value)
+
+  const findPizza = objPizzas.find(pizza => pizza.id === idPizza)
+  //console.log(findPizza)
+
+
+  /* 2- Pusheo el nombre y el precio al array vacio*/
+  arrayPizza.push({pizza:findPizza.pizza, price:findPizza.precio})
+  //console.log(array)
+
+
+
+  /* 3- Crear el elemento a renderizar con los datos del array */
+  const createPizza = dataPizza =>  `
+  <div class="container">
+    <h2 class="namePizza">${dataPizza.pizza} 🍕</h2>
+    <h3 class="pricePizza">$${dataPizza.price}</h3> 	
+  </div>
+  `
+    
+
   
-  if(item.precio < 600){
-    pizzaBarata.push(item.pizza);
+  /*  4- Mostrar elemento en el DOM */
+  //Recordatorio: paintPizza(pizzas) = paintPizza(arrayPizza)
+  const paintPizza = (pizzas) =>{
+
+    //Mapeo el array
+    divContainer.innerHTML = pizzas.map(pizza => createPizza(pizza)).join('')
+    
+    console.log(divContainer)
   }
 
-  if(preciosPizzas){
-    preciosPizzas.push(` ${item.pizza} $${item.precio}`);
+  input.value = '';
+  
+  paintPizza(arrayPizza)
+
+
+}
+
+
+
+//Errores
+const emptyInputError= () =>{
+
+  divContainer.innerHTML =  ` 
+  <div class='error_container'>
+    <span class='errorId'>No se ingresó un Id</span>
+  </div> 
+  `
+}
+
+const idError= () =>{
+  divContainer.innerHTML =  ` 
+  <div>
+    <span class='errorId2'>No existe el id ${input.value}</span>
+  </div> 
+  `
+}
+
+
+
+btnSearch.addEventListener('click',e =>{
+  e.preventDefault()
+
+  if(input.value == ''){
+    emptyInputError()
+    
   }
-
-
-  if(ingredientesPizza){
-    ingredientesPizza.push(`Los ingredientes de la pizza ${item.pizza} son:${item.ingredientes}. `);
+  else if(input.value <= 0 || input.value > 6){
+    idError()
+    input.value = ''
   }
-});
-
-const ingredientes = ingredientesPizza.join('');
-
-
-console.log(`Las pizzas con id impar: ${impar}`);
-
-console.log(`La pizza menor a $600 es: ${pizzaBarata}`);
-
-console.log(`Lista de precios: ${preciosPizzas}`);
-
-console.log(ingredientes);
-
-
-
-
-
-
-
-
-
-
-
+  else{
+    operationPizza()
+  }
+})

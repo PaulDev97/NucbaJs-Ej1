@@ -1,0 +1,129 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color:rgb(71, 65, 65);
+}
+
+.pizzaContainer{
+  width: 56%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+
+.menuPizza {
+	padding: 20px;
+	border-radius: 10px;
+	background-color:#111;
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  gap: 5px;
+	color: white;
+}
+
+
+
+.menuPizza span {
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+#formPizza{
+	display: flex;
+  flex-direction: column;
+	align-items: center;
+}
+
+#formPizza :nth-child(1){
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+input{
+	margin-right: 10px;
+	outline: none;
+	padding: 8px;
+	border-radius: 10px;
+	border: 2px solid black;
+	transition: all 0.3s;
+}
+
+
+
+input:focus{
+	border: 2px solid red;
+	
+}
+
+button{
+	padding: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 2px solid;
+	transition: all 0.3s;
+}
+
+button:hover {
+	border: 2px solid rgb(253, 166, 3);
+}
+
+
+#renderPizza {
+	width: 200px;
+	height: 100px;
+	margin-top: 30px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.error_container{
+	width: 160px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+
+.errorId{
+	border-radius: 10px;
+	background-color: rgb(241, 145, 145);
+	padding: 10px;
+	border: 4px solid red;
+}
+
+.errorId2{
+	border-radius: 10px;
+	background-color: rgb(252, 170, 18);
+	padding: 10px;
+	border: 4px solid rgb(90, 23, 23);
+}
+
+
+
+.container {
+	padding: 10px;
+	border-radius: 10px;
+	background-color:#111;
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+  gap: 5px;
+	color: white;
+	height: 90px;
+
+}
+
