@@ -1,14 +1,12 @@
 import { pizzas } from "./objectPizzas.js";
 
 const objPizzas = pizzas;
-
-
-
 const divContainer = document.getElementById('renderPizza');
 const input = document.querySelector('.input');
 const btnSearch = document.querySelector('.btn_search');
 
 
+//
 const operationPizza = () =>{
 
   let arrayPizza =  [];
@@ -43,7 +41,7 @@ const operationPizza = () =>{
   const paintPizza = (pizzas) =>{
 
     //Mapeo el array
-    divContainer.innerHTML = pizzas.map(pizza => createPizza(pizza)).join('')
+    divContainer.innerHTML = pizzas.map(createPizza).join('')
     
     console.log(divContainer)
   }
