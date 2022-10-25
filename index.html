@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza</title>
-		<link rel="stylesheet" href="./buscadorPizza.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pizza LocalStorage</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
  
-		<section class="pizzaContainer">
-			<section class="menuPizza">
-				<h1>Menu de Pizzas</h1>
-				<span>🍕Id Mozzarella = 1</span>
-				<span>🍕Id Margarita = 2</span>
-				<span>🍕Id Pepperoni = 3</span>
-				<span>🍕Id Napolitana = 4</span>
-				<span>🍕Id Fugazza = 5</span>
-				<span>🍕Id Neoyorquina = 6</span>
-			</section>
 
-			<section id="formPizza">
-				<div>
-					<input class="input" type="number" placeholder="Ingrese el id de la pizza">
-					<button class="btn_search">Consultar precio</button>
-				</div>
+	 <section class="container">
+
+		<div class="menu_pizzas">
+			<h1>Menu de pizzas</h1>
+			<ul class="pizza_ul">
+				<li>🍕Id Mozzarella = 1</li>
+				<li>🍕Id Margarita = 2</li>
+				<li>🍕Id Pepperoni = 3</li>
+				<li>🍕Id Napolitana = 4</li>
+				<li>🍕Id Fugazza = 5</li>
+				<li>🍕Id Neoyorquina = 6</li>
+			</ul>
+		</div>
+
+		<form id="form" action="">
+
+			<div class="search_container">
+				<input class="input" type="number" placeholder="Ingrese el id de la pizza">
+				<button class="btn_submit">Info pizza</button>
+			</div>
+			
+			
+					
+			<div class="card_container">
+			
+			</div>
+
+		</form>
+
+	 </section>
+
+	
 
 
-				<div id="renderPizza">
+	
+
+
 				
 	
-				</div>
-			</section>
+<script src="index.js" type="module"></script> 
 
-		</section>
-
-
-
-    <!-- <script src="ejercicio1.js"></script> -->
-    <script src="index.js" type="module"></script>
 </body>
 </html>
